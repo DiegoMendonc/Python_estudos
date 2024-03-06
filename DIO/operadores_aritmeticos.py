@@ -6,6 +6,12 @@ preco1 = float(input("Digite um preço do primeiro produto: "))
 preco2 = float(input("Digite um preço do segundo produto: "))
 while True:
     print(f"\n\033[3;34mO Primeiro produto custa R${preco1}\nO Segundo produto custa R${preco2}\033[m\n")
+    if preco1 > preco2:
+        print(f"\033[3;34mO preço do primeiro produto é \033[5;31mMAIOR\033[m\033[3;34m que o segundo produto!\033[m")
+    elif preco1 < preco2:
+        print(f"\033[3;34mO preço do primeiro produto é \033[5;31mMENOR\033[m\033[3;34m que o segundo produto!\033[m")
+    else:
+        print(f"\033[3;34mO preço do primeiro produto é \033[5;31mIGUAL\033[m\033[3;34m que o segundo produto!\033[m")
     print("-"*25)
     print("""
     [0]  ADIÇÃO
