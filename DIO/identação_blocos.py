@@ -1,4 +1,6 @@
-
+saldo = 0
+valor = 0
+    
 def sacar(valor):
     saldo = 0
     print("-"*25)
@@ -23,9 +25,6 @@ def extrato(saldo):
     print("-"*25)
 
 
-saldo = 0
-valor = 0
-    
 while True:
     print("""
         BEM-VINDO(A) AO BANCO DO FULANO! FAVOR DIGITE A OPERAÇÃO QUE DESEJA REALIZAR!
