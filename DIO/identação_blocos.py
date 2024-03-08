@@ -5,10 +5,10 @@ def sacar(valor):
     saldo = 0
     print("-"*25)
     if saldo >= valor:
-        saldo -= valor
         print("\033[3;34mValor Sacado com Sucesso!\033[m")
         print("\033[3;34mFavor retirar o valor em Caixa!\033[m")
         print("-"*25)
+        
     else:
         print("\n\033[3;31mValor Indisponível!\033[m\n")
         print("-"*25)
@@ -37,6 +37,7 @@ while True:
     if escolha == 0:
         valor = int(input("Favor digite o valor para o saque: R$"))
         sacar(valor)
+        saldo -= valor
     elif escolha == 1:
         saldo = int(input("Favor inserir o valor à ser depositado: R$"))
         depositar(saldo)
@@ -47,8 +48,15 @@ while True:
         break
     else:
         print("\033[3;31mOPÇÃO INCORRETA! FAVOR DIGITAR CORRETAMENTE!\033[m")
-    escolha2 = str(input("DESEJA CONTINUAR? [S/N] ")).strip().upper()[0]
-    if escolha2 in "Nn":
-        print("\n\033[3;34mMUITO OBRIGADO POR UTILIZAR NOSSOS SERVIÇOS!\033[m\n")
-        print("-"*25)
-        break
+    while True:
+        escolha2 = str(input("DESEJA CONTINUAR? [S/N] ")).strip().upper()[0]
+        if escolha2 in "Ss":
+            break
+        elif escolha2 not in "SsNn":
+            print("\033[3;31mRESPOSTA INVÁLIDA! FAVOR RESPONDER CORRETAMENTE\033[m")
+        elif escolha2 in "Nn":
+            print("-"*25)
+            print("\n\033[3;34mMUITO OBRIGADO POR UTILIZAR NOSSOS SERVIÇOS!\033[m\n")
+            print("-"*25)
+            break
+        
