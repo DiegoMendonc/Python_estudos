@@ -8,7 +8,6 @@ largura, altura = 600, 400
 tela = pg.display.set_mode((largura, altura))
 relogio = pg.time.Clock()
 
-
 #cores RGB
 preta = (0, 0, 0)
 branca = (255, 255, 255)
@@ -19,7 +18,7 @@ verde = (0, 255, 0)
 tamanho_quadrado = 10
 velocidade_jogo = 15
 
-#Criar um loop infinito 
+#Criar funções específicas:
 def gerar_comida():
     comida_x = round(random.randrange(0, largura - tamanho_quadrado) / 20) * 20 
     comida_y = round(random.randrange(0, altura - tamanho_quadrado) / 20) * 20
@@ -37,6 +36,7 @@ def desenhar_pontuacao(pontuacao):
     texto = fonte.render(f"Pontos: {pontuacao}", True, vermelha)
     tela.blit(texto, [1, 1])    
 
+#pegar a interação do usuario
 def selecionar_velocidade(tecla):
     if tecla == pg.K_DOWN:
         velocidade_x = 0
@@ -66,19 +66,24 @@ def rodar_jogo():
     
     comida_x, comida_y = gerar_comida()
     
+    #Criar um loop infinito 
     while not fim_jogo:
         tela.fill(preta)
-        
         for evento in pg.event.get():
+            
+            #criar a logica de terminar o jogo
             if evento.type == pg.QUIT:
                 fim_jogo = True
+            
+            #Fechar a tela ou teclado para mover a cobra
             elif evento.type == pg.KEYDOWN:
                 velocidade_x, velocidade_y = selecionar_velocidade(evento.key)
                 
-        #Desenha os objetos do jogo na tela        
+        #Desenhar os objetos do jogo na tela:        
         # Comida
-        desenhar_comida(tamanho_quadrado, comida_x, comida_y)             
+        desenhar_comida(tamanho_quadrado, comida_x, comida_y)   
         
+        #Cobra bater na parede ou Cobra bateu na cobra          
         if x < 0 or x >= largura or y < 0 or y >= altura:
             fim_jogo = True
             
@@ -90,12 +95,11 @@ def rodar_jogo():
         pixels.append([x, y])
         if len(pixels) > tamanho_cobra:
             del pixels [0]
-        
         for pixel in pixels[:-1]:
             if pixel == [x, y]:
                 fim_jogo = True 
-        
         desenhar_cobra(tamanho_quadrado, pixels)
+        
         # pontuação
         desenhar_pontuacao(tamanho_cobra -1)
         
@@ -108,13 +112,4 @@ def rodar_jogo():
             comida_x, comida_y = gerar_comida()
         
         relogio.tick(velocidade_jogo)
-
-
-
-#criar a logica de terminar o jogo
-##Cobra bater na parede ou Cobra bateu na cobra 
-
-#pegar a interação do usuario
-## fechar a tela ou teclado para mover a cobra
-
 rodar_jogo()
