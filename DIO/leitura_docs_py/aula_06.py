@@ -3,7 +3,7 @@
 import csv
 from pathlib import Path
 
-ROOTH_PATH = Path(__file__).parent 
+ROOTH_PATH = Path(__file__).parent
 
 # try:
 #     with open(ROOTH_PATH / "usuarios.csv", "w") as arquivo:
