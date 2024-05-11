@@ -59,7 +59,7 @@ while True:
 
         else:
             try:
-                with open(ROOTH_PATH / "DERROTA.csv", "w", enconding="utf-8") as arquivo:
+                with open(ROOTH_PATH / "DERROTA.csv", "w") as arquivo:
                     escritor = csv.writer(arquivo)
                     escritor = csv.writer(arquivo)
                     escritor.writerow(["TÍTULO"])
