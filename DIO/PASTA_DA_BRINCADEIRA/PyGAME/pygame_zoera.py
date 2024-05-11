@@ -8,18 +8,15 @@ ROOTH_PATH = Path(__file__).parent
 pg.init()
 
 def fade(screen, text_surface, image_surface, new_text):
-    # Fade-out
     for alpha in range(255, 0, -10):
         screen.fill((255, 255, 255))
         text_surface.set_alpha(alpha)
         screen.blit(text_surface, ( WIDHT // 2 - text_surface.get_width() // 2, HEIGHT // 2 - text_surface.get_height() // 2))
         pg.display.flip()
         pg.time.delay(50)
-    
-    # Altera o texto
+        
     text_surface = font.render(new_text, True, (5, 10, 10))
     
-    # Fade-in
     for alpha in range(0, 255, 10):
         screen.fill((0, 0, 0))
         text_surface.set_alpha(alpha)
@@ -29,7 +26,6 @@ def fade(screen, text_surface, image_surface, new_text):
         pg.time.delay(50)
         
 
-# Configuração de tela:
 WIDHT = 800
 HEIGHT = 600
 WINDOW_SIZE = (WIDHT, HEIGHT)
@@ -44,18 +40,14 @@ image = pg.image.load(ROOTH_PATH / "troll_face.png")
 image_surface = pg.Surface((image.get_width(), image.get_height()), pg.SRCALPHA)
 image_surface.fill((255, 255, 255, 0))  # Define a transparência inicial para 0
 image_surface.blit(image, (0, 0))
-# CORES:
 
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 IMAGE = pg.image.load(ROOTH_PATH / "shiba_meme.png")
 
-# POSIÇÂO DA IMAGEM:
-
 IMAGE_RECT = IMAGE.get_rect()
 IMAGE_RECT_CENTER = (WIDHT // 2, HEIGHT //2) 
-# Propriedades do balão:
 
 BALLOON_RADIUS = 50
 BALLOON_COLOR = RED
@@ -81,8 +73,6 @@ while True:
     text_surface = font.render(current_text, True, (0, 0, 0))
     text_rect = text_surface.get_rect(center=button_rect.center)
     window.blit(text_surface, text_rect)
-    
-    #draw_balloon()
     
     for event in pg.event.get():
         if event.type == pg.QUIT:
