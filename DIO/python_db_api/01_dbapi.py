@@ -13,12 +13,12 @@ def CREATE(conn, cursor):
     
 def INSERT(conn, cursor, nome, email):
     data = (nome, email)
-    cursor.execute("INSERT INTO clientes (nome, email) VALUES (?, ?);", data)
+    cursor.execute("INSERT INTO clientes (status, uf) VALUES (?, ?);", data)
     conn.commit()
 
-def UPDATE(conn, cursor, nome, email, id):
-    data = (nome, email, id)
-    cursor.execute("UPDATE clientes SET profissao=?, salario=? WHERE id=?;", data)
+def UPDATE(conn, cursor, cidade, id):
+    data = (cidade, id)
+    cursor.execute("UPDATE clientes SET cidade=? WHERE id=?;", data)
     conn.commit()
 
 def DELETE(conn, cursor, id):
@@ -27,7 +27,7 @@ def DELETE(conn, cursor, id):
     conn.commit()
 
 def INSERT_MANY(conn, cursor, dados):
-    cursor.executemany("INSERT INTO clientes (profissao, salario) VALUES (?,?);", dados)
+    cursor.executemany("INSERT INTO clientes (cidade, estado) VALUES (?,?);", dados)
     conn.commit()
 
 
@@ -35,7 +35,7 @@ def INSERT_MANY(conn, cursor, dados):
 
 # UPDATE(conn, cursor, "analista administrativo", 3200, 2)
 # UPDATE(conn, cursor, "operador de produção", 2500, 3)
-# UPDATE(conn, cursor, "supervisor de produção", 5000, 4)
+# UPDATE(conn, cursor, "supervisor de produção", (5000, 4)
 # UPDATE(conn, cursor, "assistente de faturamento", 2300, 5)
 # UPDATE(conn, cursor, "auxiliar administrativo", 1900, 6)
 # UPDATE(conn, cursor, "encarregado operacional", 3500, 7)
@@ -46,3 +46,17 @@ def INSERT_MANY(conn, cursor, dados):
 
 # UPDATE(conn, cursor, "Ana Beatriz Carvalho Rosa", "abcr@outlook.com.br", 12)
 # UPDATE(conn, cursor, "Janaína Godoi", "janadoi@hotmail.com", 14)
+
+UPDATE(conn, cursor, "Ponta Grossa", 1)
+UPDATE(conn, cursor, "Joinville", 2)
+UPDATE(conn, cursor, "São Paulo", 3)
+UPDATE(conn, cursor, "Londrina", 4)
+UPDATE(conn, cursor, "Uraí", 5)
+UPDATE(conn, cursor, "Umuarama", 6)
+UPDATE(conn, cursor, "Ponta Grossa", 7)
+UPDATE(conn, cursor, "Maringá", 9)
+UPDATE(conn, cursor, "Canoas", 10)
+UPDATE(conn, cursor, "Blumenau", 11)
+UPDATE(conn, cursor, "Rio de Janeiro", 12)
+UPDATE(conn, cursor, "Santos", 13)
+UPDATE(conn, cursor, "São Paulo", 14)
