@@ -1,14 +1,29 @@
+import sqlite3
 from pathlib import Path
-import plotly_express as px
-from sqlalchemy import create_engine
+
+import matplotlib.pyplot as plt
+
 import pandas as pd
 
 ROOTH_PATH = Path(__file__).parent
 
-engine = create_engine("meu_banco.db")
-query = "SELECT * FROM clientes"
+conn = sqlite3.connect(ROOTH_PATH / "meu_banco.db")
+df = pd.read_sql_query("SELECT * FROM clientes", conn)
 
-df = pd.read_sql_query(query, engine)
+# bar = plt.bar(df["uf"], df["salario"])
+pl = plt.bar(
+    df["uf"],
+    df["salario"],
+    0.9,
+    None)
 
-fig = px.bar(df, x="uf", y="salario", title="Base de Salários")
-fig.show()
+plt.show()
+
+pl2 = plt.pie(
+    df["salario"],
+    None,
+    df["uf"],
+    None,
+    None)
+
+plt.show()
