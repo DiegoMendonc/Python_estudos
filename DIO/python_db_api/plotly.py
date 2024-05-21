@@ -1,9 +1,21 @@
 import sqlite3
-from pathlib import Path
-
-import matplotlib.pyplot as plt
-
 import pandas as pd
+from tkinter import *
+from tkinter import ttk
+from pathlib import Path
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import matplotlib.pyplot as plt
+from matplotlib.figure import Figure
+
+# Cores:
+preto = "#f0f3f5"
+branco = "#f3ffff"
+azul = "#6f9fd"
+valor = "#38576b"
+letra = "403d3d"
+co5 = "#e06636"
+co06 = "#6dd695"
+fundo = "#3f729b"
 
 ROOTH_PATH = Path(__file__).parent
 
