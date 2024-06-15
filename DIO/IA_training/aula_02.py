@@ -32,7 +32,7 @@ while True:
         print("Palavra-chave reconhecida! Executando comando...")
         os.system('start notepad.exe')
     
-    elif keyword and "desligar" in keyword.lower():
+    elif keyword and "desligar o computador" in keyword.lower():
         print("Palavra-chave reconhecida! Executando comando...")
         os.system('shutdown /s /t 0')
     break
