@@ -15,6 +15,6 @@ linha()
 titulo("Bem-Vindo ao Pesquisador Python!")
 espaco()
 
-frase = input("Digite o que deseja pesquisar: ")
+frase = input("Digite o que deseja pesquisar no \033[3;33mGoogle\033[m: ")
 pesquisar = (f"https://www.google.com.br/search?q={frase}")
 web.open(pesquisar)
