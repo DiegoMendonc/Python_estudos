@@ -19,6 +19,10 @@ print("Mapa:", mapa)
 print("Coleção:", colecao)
 print("Binário:", bin)
 print("Complexo:", complex)
-print("Tupla:", turple)
+print("Tupla:", turple, "\n")
 
-print(help(string))
+print("\nMétodos do inteiro 100:")
+print(dir(100), "\n")
+
+print("\nMétodos do Help do inteiro 100:")
+print(help(100), "\n")
