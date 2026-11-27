@@ -7,3 +7,4 @@ CONST_PI = 3.14
 
 print(f"\nOlá {info_nome}, você tem {info_int} anos de idade e {info_float} de altura.\n")
 print(f"Valor da constante PI: {CONST_PI}\n")
+print(f"Fim da aplicação, obrigado por utilizar nosso sistema!\n")  
